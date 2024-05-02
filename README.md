@@ -1,4 +1,4 @@
-# Orderease - Restaurant Management Application
+# Orderease - Restaurant Management System
 
 ## Project Status
 This project is currently in continuation state. Features are being added and improvements are being made. Soon, it will be available.
