@@ -13,7 +13,6 @@ import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 
-
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
 
@@ -28,10 +27,14 @@ class _AuthScreenState extends State<AuthScreen> {
   String _selectedTableNumber = GlobalVariables.tableNumbers[0];
   String userType = GlobalVariables.userTypes[0];
 
-  Future<void> sendData(String name, String mobile, String userType, String table) async {
+  Future<void> sendData(
+      String name, String mobile, String userType, String table) async {
     var url = Uri.parse('${GlobalVariables.baseUrl}/api/sendData');
-    var body = jsonEncode({'name': name, 'mobile': mobile, 'userType': userType, 'table': table});
-    var response = await http.post(url, headers: {'Content-Type': 'application/json; charset=UTF-8'}, body: body);
+    var body = jsonEncode(
+        {'name': name, 'mobile': mobile, 'userType': userType, 'table': table});
+    var response = await http.post(url,
+        headers: {'Content-Type': 'application/json; charset=UTF-8'},
+        body: body);
     if (response.statusCode == 200) {
       debugPrint('Data sent successfully!');
     } else {
@@ -62,8 +65,12 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
           TextButton(
             onPressed: () {
-              if (passwordController.text.trim() == dotenv.env['ADMIN_PASSWORD']) {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const AdminScreen()));
+              if (passwordController.text.trim() ==
+                  dotenv.env['ADMIN_PASSWORD']) {
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const AdminScreen()));
               } else {
                 CustomSnackbar.show(context, 'Incorrect password!');
               }
@@ -83,12 +90,13 @@ class _AuthScreenState extends State<AuthScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            Lottie.asset(GlobalVariables.authLottieAnimation, height: 200, width: 200),
+            Lottie.asset(GlobalVariables.authLottieAnimation,
+                height: 200, width: 200),
             const SizedBox(height: 10),
             const Text(
               'Your gateway to deliciousness!',
               style: TextStyle(
-                color: Color.fromARGB(255, 120, 0, 141),
+                color: GlobalVariables.purple4,
                 fontFamily: 'Raleway',
                 fontSize: 18,
               ),
@@ -107,14 +115,23 @@ class _AuthScreenState extends State<AuthScreen> {
                     key: _formKey,
                     child: Column(
                       children: [
-                        CustomTextField(controller: _nameController, hint: 'Name', icon: Icons.person),
+                        CustomTextField(
+                            controller: _nameController,
+                            hint: 'Name',
+                            icon: Icons.person),
                         const SizedBox(height: 20),
-                        CustomTextField(controller: _mobileController, hint: 'Mobile Number', icon: Icons.phone),
+                        CustomTextField(
+                          controller: _mobileController,
+                          hint: 'Mobile Number',
+                          icon: Icons.phone,
+                          keyboardType: TextInputType.number,
+                        ),
                         const SizedBox(height: 20),
                         DropdownButtonFormField<String>(
                           value: userType,
                           decoration: InputDecoration(
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20)),
                             prefixIcon: const Icon(Icons.person),
                           ),
                           items: GlobalVariables.userTypes.map((String type) {
@@ -123,22 +140,26 @@ class _AuthScreenState extends State<AuthScreen> {
                               child: Text(type),
                             );
                           }).toList(),
-                          onChanged: (value) => setState(() => userType = value!),
+                          onChanged: (value) =>
+                              setState(() => userType = value!),
                         ),
                         const SizedBox(height: 20),
                         DropdownButtonFormField<String>(
                           value: _selectedTableNumber,
                           decoration: InputDecoration(
-                            border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20)),
                             prefixIcon: const Icon(Icons.restaurant_menu),
                           ),
-                          items: GlobalVariables.tableNumbers.map((String number) {
+                          items:
+                              GlobalVariables.tableNumbers.map((String number) {
                             return DropdownMenuItem<String>(
                               value: number,
                               child: Text(number),
                             );
                           }).toList(),
-                          onChanged: (value) => setState(() => _selectedTableNumber = value!),
+                          onChanged: (value) =>
+                              setState(() => _selectedTableNumber = value!),
                         ),
                         const SizedBox(height: 35),
                         CustomButton(
@@ -146,17 +167,23 @@ class _AuthScreenState extends State<AuthScreen> {
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
                               sendData(
-                                _nameController.text,
-                                _mobileController.text,
-                                userType,
-                                _selectedTableNumber
-                              );
+                                  _nameController.text,
+                                  _mobileController.text,
+                                  userType,
+                                  _selectedTableNumber);
                               if (userType == 'Admin') {
                                 showPasswordDialog();
                               } else {
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Home()));
-                                Provider.of<UserProvider>(context, listen: false).addUser(_nameController.text);
-                                Provider.of<UserProvider>(context, listen: false).addTable(_selectedTableNumber);
+                                Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => const Home()));
+                                Provider.of<UserProvider>(context,
+                                        listen: false)
+                                    .addUser(_nameController.text);
+                                Provider.of<UserProvider>(context,
+                                        listen: false)
+                                    .addTable(_selectedTableNumber);
                               }
                             }
                           },
