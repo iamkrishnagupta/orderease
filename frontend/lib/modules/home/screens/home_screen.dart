@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context, listen: false).user;
+    // final user = Provider.of<UserProvider>(context, listen: false).user;
     final cart = Provider.of<CartProvider>(context, listen: false).cart;
     return Scaffold(
       key: scaffoldKey,
