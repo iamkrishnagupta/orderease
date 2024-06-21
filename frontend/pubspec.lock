@@ -158,6 +158,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.19"
+  flutter_product_card:
+    dependency: "direct main"
+    description:
+      name: flutter_product_card
+      sha256: "718c68c8aee1f29a7fc334af24dec63140e495902d830ddd6c8e4284acc752e7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.4"
   flutter_secure_storage:
     dependency: "direct main"
     description:

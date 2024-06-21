@@ -1,8 +1,5 @@
 # Orderease - Restaurant Management System
 
-## Project Status
-This project is currently in continuation state. Features are being added and improvements are being made. Soon, it will be available.
-
 ## Overview
 Orderease is designed to streamline the daily operations of restaurants.
 Orderease offers a responsive and intuitive interface to ensure optimal usability across various devices.
