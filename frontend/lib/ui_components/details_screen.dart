@@ -3,7 +3,6 @@ import 'package:frontend/constants/global_variables.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
-
 class DetailPage extends StatefulWidget {
   const DetailPage({
     super.key,
@@ -63,8 +62,7 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.name),
-               backgroundColor: GlobalVariables.purple,
-
+        backgroundColor: GlobalVariables.purple,
       ),
       backgroundColor: Colors.white,
       body: SizedBox(

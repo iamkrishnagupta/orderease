@@ -24,9 +24,9 @@ class _AddFoodState extends State<AddFood> {
   @override
   void initState() {
     super.initState();
-    category =
-        GlobalVariables.categories.first; 
+    category = GlobalVariables.categories.first;
   }
+
   List<File> images = [];
 
   Future<List<File>> pickImages() async {
@@ -87,8 +87,7 @@ class _AddFoodState extends State<AddFood> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-               backgroundColor: GlobalVariables.purple,
-
+        backgroundColor: GlobalVariables.purple,
         title: const Text('Add Items'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),

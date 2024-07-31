@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:frontend/constants/category_utils.dart';
 import 'package:frontend/modules/menu/screens/menu_screen.dart';
 
-
 class CategoryCard extends StatelessWidget {
   const CategoryCard({Key? key, required this.category}) : super(key: key);
   final CategoryUtils category;
@@ -17,7 +16,8 @@ class CategoryCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => MenuScreen(category: category.title)),
+          MaterialPageRoute(
+              builder: (context) => MenuScreen(category: category.title)),
         );
       },
       child: Padding(
@@ -34,14 +34,13 @@ class CategoryCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: ClipOval(
-                  child: Image.asset(
-                    category.image,
-                    height: 40,
-                    fit: BoxFit.cover,
-                  ),
+                child: Image.asset(
+                  category.image,
+                  height: 40,
+                  fit: BoxFit.cover,
                 ),
               ),
-
+            ),
             const SizedBox(
               height: 5,
             ),

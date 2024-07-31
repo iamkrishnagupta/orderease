@@ -53,8 +53,7 @@ class _ChartPageState extends State<ChartPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Income Chart'),
-               backgroundColor: GlobalVariables.purple,
-
+        backgroundColor: GlobalVariables.purple,
       ),
       body: FutureBuilder<List<ChartModel>>(
         future: _futureChartData,

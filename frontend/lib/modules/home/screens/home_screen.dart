@@ -222,9 +222,8 @@ class _HomeState extends State<Home> {
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: MediaQuery.of(context).size.width > 600
-                            ? 4
-                            : 2, 
+                        crossAxisCount:
+                            MediaQuery.of(context).size.width > 600 ? 4 : 2,
                         crossAxisSpacing: 8,
                         mainAxisSpacing: 10,
                         childAspectRatio: 0.7,

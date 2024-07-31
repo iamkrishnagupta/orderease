@@ -17,8 +17,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('PaymentScreen'),
-            backgroundColor: GlobalVariables.purple,
-
+        backgroundColor: GlobalVariables.purple,
       ),
       body: Padding(
         padding: const EdgeInsets.all(50.0),
@@ -33,10 +32,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
             CustomButton2(
                 text: 'Back to Home',
                 onTap: () {
-                  Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Home()));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => const Home()));
                 })
           ],
         ),

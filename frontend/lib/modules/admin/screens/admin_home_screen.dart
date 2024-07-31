@@ -7,7 +7,6 @@ import 'package:frontend/ui_components/custom_card.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
-
 class AdminHomeScreen extends StatefulWidget {
   const AdminHomeScreen({Key? key}) : super(key: key);
 
@@ -36,24 +35,28 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
       setState(() {
         _isLoading = false;
       });
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
     }
   }
 
   Future<void> _deleteItem(String foodId) async {
-    final url = Uri.parse('${GlobalVariables.baseUrl}/admin/delete-products/$foodId');
+    final url =
+        Uri.parse('${GlobalVariables.baseUrl}/admin/delete-products/$foodId');
     try {
       final response = await http.delete(url);
       if (response.statusCode == 200) {
         setState(() {
           _foods.removeWhere((food) => food['_id'] == foodId);
         });
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Food item deleted')));
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text('Food item deleted')));
       } else {
         throw Exception('Failed to delete food');
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Error: ${e.toString()}')));
     }
   }
 
@@ -68,18 +71,18 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
-             backgroundColor: GlobalVariables.purple,
-
+        backgroundColor: GlobalVariables.purple,
       ),
       body: _isLoading
-        ? const Center(child: CircularProgressIndicator())
-        : _foods.isEmpty
-          ? const Center(child: Text('No products found'))
-          : buildGridView(),
+          ? const Center(child: CircularProgressIndicator())
+          : _foods.isEmpty
+              ? const Center(child: Text('No products found'))
+              : buildGridView(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.teal,
         child: const Icon(Icons.add),
-        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const AddFood())),
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const AddFood())),
         tooltip: 'Add a Product',
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
@@ -99,7 +102,9 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
       itemBuilder: (context, index) {
         final food = _foods[index];
         return CustomCard(
-          imageUrl: (food['imageurls'] != null && food['imageurls'].isNotEmpty) ? food['imageurls'][0] : 'https://via.placeholder.com/150',
+          imageUrl: (food['imageurls'] != null && food['imageurls'].isNotEmpty)
+              ? food['imageurls'][0]
+              : 'https://via.placeholder.com/150',
           categoryName: food['category'],
           itemName: food['name'],
           price: food['price'],
@@ -114,7 +119,8 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
   }
 
   void handleCartOperation(BuildContext context, Map<String, dynamic> food) {
-    CartProvider cartProvider = Provider.of<CartProvider>(context, listen: false);
+    CartProvider cartProvider =
+        Provider.of<CartProvider>(context, listen: false);
     bool alreadyExists = cartProvider.itemAlreadyExists(food);
     if (alreadyExists) {
       cartProvider.removeProduct(food);

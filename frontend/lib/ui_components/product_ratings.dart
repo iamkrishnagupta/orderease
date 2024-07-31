@@ -64,8 +64,7 @@ class _ProductRatingState extends State<ProductRating> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Rate Products'),
-          backgroundColor: GlobalVariables.purple,
-
+        backgroundColor: GlobalVariables.purple,
       ),
       body: cart.isEmpty
           ? Center(

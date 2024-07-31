@@ -72,12 +72,14 @@ class _SearchScreenState extends State<SearchScreen> {
             : _errorMessage != null
                 ? Center(child: Text(_errorMessage!)) // Display error message
                 : _foods.isEmpty
-                    ? const Center(child: Text('No items found in this category'))
+                    ? const Center(
+                        child: Text('No items found in this category'))
                     : GridView.builder(
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: MediaQuery.of(context).size.width > 600
+                          crossAxisCount: MediaQuery.of(context).size.width >
+                                  600
                               ? 4
                               : 2, // This will make two cards appear in one row
                           crossAxisSpacing: 8,
@@ -111,16 +113,15 @@ class _SearchScreenState extends State<SearchScreen> {
                                   cartProvider.removeProduct(food);
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                      content:
-                                          Text('Action Successful.'),
+                                      content: Text('Action Successful.'),
                                     ),
                                   );
                                 } else {
                                   cartProvider.addProduct(food);
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(
-                                      content:
-                                          Text('Item added to cart successfully'),
+                                      content: Text(
+                                          'Item added to cart successfully'),
                                     ),
                                   );
                                 }

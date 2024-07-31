@@ -13,9 +13,7 @@ class Category extends StatelessWidget {
       width: screenWidth,
       padding: const EdgeInsets.fromLTRB(1, 0, 0, 0),
       // Consider defining your colors in the app's theme to maintain consistency and make changes easier
-      color: Theme.of(context)
-          .colorScheme
-          .background, 
+      color: Theme.of(context).colorScheme.background,
       child: Column(
         children: [
           const SizedBox(height: 20),
@@ -26,10 +24,9 @@ class Category extends StatelessWidget {
             child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 10), 
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Wrap(
-                  spacing: 10, 
+                  spacing: 10,
                   runSpacing: 20,
                   children: List.generate(
                     categoryUtils.length,

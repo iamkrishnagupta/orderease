@@ -35,11 +35,11 @@ class GlobalVariables {
     'Chinese'
   ];
   static const String authLottieAnimation = 'assets/json/la1.json';
-  static const String welcomeScreenAnimation = 'assets/json/welcome_screen.json';
+  static const String welcomeScreenAnimation =
+      'assets/json/welcome_screen.json';
   static const String waiterImage = 'assets/images/waiter.png';
-  static const Color purple =Color.fromARGB(255, 225, 190, 231);
-  static const Color purple2 =Color.fromARGB(255, 206, 147, 216);
-  static const Color purple3 =Color.fromARGB(255, 186, 104, 200);
-  static const Color purple4 =Color.fromARGB(255, 171, 71, 188);
- 
+  static const Color purple = Color.fromARGB(255, 225, 190, 231);
+  static const Color purple2 = Color.fromARGB(255, 206, 147, 216);
+  static const Color purple3 = Color.fromARGB(255, 186, 104, 200);
+  static const Color purple4 = Color.fromARGB(255, 171, 71, 188);
 }

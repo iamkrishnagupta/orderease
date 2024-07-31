@@ -33,8 +33,7 @@ class _AdminScreenState extends State<AdminScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-              backgroundColor: GlobalVariables.purple,
-
+        backgroundColor: GlobalVariables.purple,
         title: const Text('OrderEase Admin'),
       ),
       body: IndexedStack(
