@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 class AdminHomeScreen extends StatefulWidget {
-  const AdminHomeScreen({Key? key}) : super(key: key);
+  const AdminHomeScreen({super.key});
 
   @override
   State<AdminHomeScreen> createState() => _AdminHomeScreenState();
@@ -50,7 +50,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
           _foods.removeWhere((food) => food['_id'] == foodId);
         });
         ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text('Food item deleted')));
+            .showSnackBar(const SnackBar(content: Text('Food item deleted')));
       } else {
         throw Exception('Failed to delete food');
       }
@@ -80,10 +80,10 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
               : buildGridView(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.teal,
-        child: const Icon(Icons.add),
         onPressed: () => Navigator.push(
             context, MaterialPageRoute(builder: (context) => const AddFood())),
         tooltip: 'Add a Product',
+        child: const Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

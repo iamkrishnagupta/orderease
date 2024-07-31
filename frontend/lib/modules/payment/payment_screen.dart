@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/constants/global_variables.dart';
-import 'package:frontend/modules/admin/screens/admin_home_screen.dart';
 import 'package:frontend/modules/home/screens/home_screen.dart';
 import 'package:frontend/ui_components/custom_button2.dart';
 

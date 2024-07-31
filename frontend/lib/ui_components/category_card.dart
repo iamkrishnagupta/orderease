@@ -3,7 +3,7 @@ import 'package:frontend/constants/category_utils.dart';
 import 'package:frontend/modules/menu/screens/menu_screen.dart';
 
 class CategoryCard extends StatelessWidget {
-  const CategoryCard({Key? key, required this.category}) : super(key: key);
+  const CategoryCard({super.key, required this.category});
   final CategoryUtils category;
 
   @override
@@ -46,7 +46,7 @@ class CategoryCard extends StatelessWidget {
             ),
             Text(
               category.title,
-              style: TextStyle(fontSize: 10),
+              style: const TextStyle(fontSize: 10),
             )
           ],
         ),

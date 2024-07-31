@@ -6,11 +6,11 @@ class AddFoodCustomTextField extends StatelessWidget {
   final int maxLines;
 
   const AddFoodCustomTextField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.hintText,
     this.maxLines = 1,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/constants/global_variables.dart';
 import 'package:frontend/ui_components/details_screen.dart';
 
 class CustomCard extends StatefulWidget {

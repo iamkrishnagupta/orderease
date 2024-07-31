@@ -5,7 +5,6 @@ import 'package:frontend/modules/home/screens/category_screen.dart';
 import 'package:frontend/modules/home/screens/search_screen.dart';
 import 'package:frontend/modules/welcome/welcome_screen.dart';
 import 'package:frontend/providers/cart_provider.dart';
-import 'package:frontend/providers/user_provider.dart';
 import 'package:frontend/ui_components/custom_card.dart';
 import 'package:frontend/ui_components/product_ratings.dart';
 import 'package:http/http.dart' as http;
